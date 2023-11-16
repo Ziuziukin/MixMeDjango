@@ -7,32 +7,43 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}"/>
     <title>MixMe</title>
 </head>
 
-<body>
-    <header>
-        <div class="container-flex">
-            <div class="row">
-                <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-                    <a href="/sidebar">
-                        <img src="static/main/image/icon/MenuIcon(burger).png" class="header_image">
-                    </a>
-                </div>
-                <div class="col-6 col-sm-6 col-md-8 col-lg-9 col-xl-9   my-auto">
-                    <h1 class="header-text">Бренды</h1>
-                </div>
-                <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-                    <img src="static/main/image/icon/FindIcon.png" class="header_image">
-                </div>
-                <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-                    <img src="static/main/image/icon/FilterIcon.png" class="header_image">
-                </div>
-            </div>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Панель навигации</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Рекомендуемые</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Цена</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Отключенная</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </header>
+      </nav>
+    </div>
+  </div>
+</header>
 
 <!--    разное окно при разном масштабе <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark mb-4">-->
 
@@ -73,11 +84,11 @@
 <!--    </div>-->
 
 
-    <footer>
+<!--    <footer>-->
 
-    </footer>
+<!--    </footer>-->
 
-<script src="script.js"></script>
+<!--<script src="script.js"></script>-->
 </body>
 
 </html>
