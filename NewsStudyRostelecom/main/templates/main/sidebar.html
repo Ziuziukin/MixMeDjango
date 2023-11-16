@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'main/css/sidebar.css' %}"/>
+</head>
+
+<body>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3" style="background-color:#29282E">
+            <div class="row">
+                <div class="col-3">
+                    <img src="{% static 'main/image/user_image/default_user.png' %}"
+                         alt="Пользователь"
+                         style="width:auto; height: 50px">
+                </div>
+                <div class="col-9">
+                    <p>e-mail пользователя</p>
+                </div>
+            </div>
+            <row>
+                <ul>
+                    <li><a href="#">Список покупок</a></li>
+                    <li><a href="#">Справка</a></li>
+                    <li><a href="#">О приложении</a></li>
+                    <li><a href="#">Выход</a></li>
+                </li>
+            </row>
+        </div>
+        <div class="col-md-9">
+            <div class="container">
+                <h1>Основная часть</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

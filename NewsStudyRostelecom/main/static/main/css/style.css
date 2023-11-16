@@ -1,0 +1,46 @@
+body {
+  margin: 2px;
+  background-color: #29282E;
+}
+
+h1, h4, h5 {
+color: white;
+}
+
+header {
+ padding-top: 5px;
+ padding-bottom: 10px;
+}
+
+.icon {
+border-width: 3px;
+border-color: white;
+}
+
+table {
+ margin: auto;
+ width: 70%;
+ padding: 3px;
+ color: white;
+}
+
+td {
+  display: block;
+}
+
+.header_image {
+ margin: 2px 2px 2px 2px;
+ display: flex;
+
+}
+
+.img-brand {
+ max-height: 300px;
+ max-width: 1000px;
+}
+
+.header-text {
+ text-align: center;
+}
+
+покопать - class-dropdown

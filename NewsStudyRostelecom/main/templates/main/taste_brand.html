@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}"/>
+    <title>{{brand}}</title>
+</head>
+
+<body>
+
+
+<div class="container-fluid">
+
+    <h4>{{brand}}</h4>
+
+    <form>
+        <input type="text" name=text" class="search" placeholder="Search here!">
+        <input type="submit" name="submit" class="submit" value="Search">
+    </form>
+
+    <table>
+        {% for taste in taste_info %}
+        <tr onclick="window.location='taste/{{brand}}-{{taste.0}}'">
+            <td>
+                <img src="{% static taste.3 %}" width="100" height="100">
+            </td>
+            <td>
+                <p> {{taste.0}} </p>
+                <p> Крепость - {{taste.1}} </p>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
