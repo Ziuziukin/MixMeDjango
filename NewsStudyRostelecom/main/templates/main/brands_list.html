@@ -1,0 +1,20 @@
+{% load static %}
+
+<section class="brands_list">
+    <div class="container">
+        <div class="row">
+            {% for brand in brand_info %}
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div>
+                    <a href="/brand/{{brand.0}}">
+                        <img src="{% static brand.1 %}" class="img-fluid">
+                    </a>
+                </div>
+                <h5 class="col-12 col-md-12 col-lg-6 col-xl-6">
+                    {{brand.0}}
+                </h5>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

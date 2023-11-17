@@ -7,24 +7,7 @@ h1, h4, h5 {
 color: white;
 }
 
-.icon {
-border-width: 3px;
-border-color: white;
+.header-text {
+text-align: center;
 }
 
-table {
- margin: auto;
- width: 70%;
- padding: 3px;
- color: white;
-}
-
-td {
-  display: block;
-}
-
-
-.img-brand {
- max-height: 300px;
- max-width: 1000px;
-}
