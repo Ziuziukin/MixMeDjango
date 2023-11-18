@@ -3,11 +3,19 @@ body {
   background-color: #29282E;
 }
 
-h1, h4, h5 {
+h1, h2, h3, h4, h5, h6, h7, p {
 color: white;
 }
 
 .header-text {
 text-align: center;
+}
+
+.fixed-top, .fixed-bottom {
+ background-color: #29282E;
+}
+
+.fixed-bottom {
+background-color: rgba(41, 40, 46, 0.9); /* Фон веб-страницы */
 }
 

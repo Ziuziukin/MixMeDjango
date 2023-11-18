@@ -14,7 +14,10 @@ def index(request):
                 x.append(line)
                 brand.append(x)
 
-    context = {'brand_info': brand}
+    context = {'brand_info': brand,
+               'page': 'Бренды',
+               'title': 'Mix.Me'}
+
     return render(request, 'main/index.html', context)
 
 def about(request):
@@ -28,23 +31,36 @@ def sidebar(request):
 
 def brand(request, brand_name):
     with open('temp_db/taste.csv', 'r', encoding='utf8', errors='ignore') as file:
-        taste = []
+        tastes = []
         for line in file:
             line = line.replace('\n', '')
             line = line.split(';')
             x = []
-            if line[2] == brand_name:
+            if line[3] == brand_name:
                 x.append(line[0])
                 x.append(line[1])
                 x.append(line[2])
-                x.append(f'main/image/taste/{line[2]}/{line[0]}.jpg')
-                taste.append(x)
-        print(len(taste))
-        print(taste)
+                x.append(line[3])
+                x.append(f'main/image/taste/{line[3]}/{line[1]}.jpg')
+                tastes.append(x)
 
     context = {'brand': brand_name,
-               'taste_info': taste}
+               'tastes_list': tastes,
+               'page': brand_name,
+               'title': f'Mix.Me {brand_name}'}
 
     return render(request, 'main/taste_brand.html', context)
 
+def taste(request, id_taste):
+    with open('temp_db/taste.csv', 'r', encoding='utf8', errors='ignore') as file:
+        taste = []
+        for line in file:
+            line = line.replace('\n', '')
+            line = line.split(';')
+            if line[0] == id_taste:
+                taste = line
 
+    context = {'taste_info': taste,
+               'page': taste[1],
+               'title': f'Mix.Me {taste[1]}'}
+    return render(request, 'main/taste.html', context)
