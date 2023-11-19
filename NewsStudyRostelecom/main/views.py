@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
+
+
 # Create your views here.
 
+#Заглавная страница со списком брендов
 def index(request):
     with open('temp_db/brand_name.csv', 'r', encoding='utf8', errors='ignore') as file:
         brand = []
@@ -20,16 +23,8 @@ def index(request):
 
     return render(request, 'main/index.html', context)
 
-def about(request):
-    return HttpResponse('<h1> Страница про нас </h1>')
-
-def contacts(request):
-    return HttpResponse('<h1> Контакты </h1>')
-
-def sidebar(request):
-    return render(request, 'main/sidebar.html')
-
-def brand(request, brand_name):
+#Вызов страницы для отображения вкусов бренда
+def tastes_brand(request, brand_name):
     with open('temp_db/taste.csv', 'r', encoding='utf8', errors='ignore') as file:
         tastes = []
         for line in file:
@@ -49,18 +44,30 @@ def brand(request, brand_name):
                'page': brand_name,
                'title': f'Mix.Me {brand_name}'}
 
-    return render(request, 'main/taste_brand.html', context)
+    return render(request, 'main/tastes_brand.html', context)
 
+#Вызов страницы для отображения конкретного вкуса
 def taste(request, id_taste):
     with open('temp_db/taste.csv', 'r', encoding='utf8', errors='ignore') as file:
         taste = []
         for line in file:
             line = line.replace('\n', '')
             line = line.split(';')
-            if line[0] == id_taste:
+            if line[0] == str(id_taste):
                 taste = line
+                taste.append(f'main/image/taste/{line[3]}/{line[1]}.jpg')
 
     context = {'taste_info': taste,
                'page': taste[1],
                'title': f'Mix.Me {taste[1]}'}
     return render(request, 'main/taste.html', context)
+
+def account(request, id_user):
+    context = {'id_user': id_user}
+    return render(request, 'main/account.html', context)
+
+def inform_app(request):
+    return render(request, 'main/inform_app.html')
+
+def page_not_found(request, exception):
+    return HttpResponseNotFound('<h1>Ой, что-то пошло не так. Страница не найдена. Теперь есть время перезабить кальян!</h1>')
