@@ -4,15 +4,15 @@
     <div class="container">
         <div class="row">
             {% for brand in brand_info %}
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6 mb-3">
                 <div>
-                    <a href="/brand/{{brand.0}}">
-                        <img src="{% static brand.1 %}" class="img-fluid">
+                    <a href="/brand/{{brand.0}}" >
+                        <img src="{% static brand.1 %}" class="img-fluid rounded">
                     </a>
                 </div>
-                <h5 class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <p class="col-12 col-md-12 col-lg-6 col-xl-6 mt-0 mb-0 fs-3 text-light">
                     {{brand.0}}
-                </h5>
+                </p>
             </div>
             {% endfor %}
         </div>

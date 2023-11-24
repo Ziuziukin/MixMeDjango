@@ -25,11 +25,12 @@ def index(request):
 
 #Вызов страницы для отображения вкусов бренда
 def tastes_brand(request, brand_name):
-    with open('temp_db/taste.csv', 'r', encoding='utf8', errors='ignore') as file:
+    with open('temp_db/taste.csv', 'r', encoding='Windows-1251') as file:
         tastes = []
         for line in file:
             line = line.replace('\n', '')
             line = line.split(';')
+            print(line)
             x = []
             if line[3] == brand_name:
                 x.append(line[0])
@@ -37,6 +38,7 @@ def tastes_brand(request, brand_name):
                 x.append(line[2])
                 x.append(line[3])
                 x.append(f'main/image/taste/{line[3]}/{line[1]}.jpg')
+                x.append(line[4])
                 tastes.append(x)
 
     context = {'brand': brand_name,

@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="container" style="height: 50px"></div>
+<div class="container" style="height: 55px"></div>
 <header>
     <div class="fixed-top">
         <div class="container-fluid">
@@ -12,9 +12,9 @@
                             data-bs-toggle="offcanvas" style="background-color: #29282E" type="button">
                         <img src="{% static 'main/image/icon/MenuIcon(burger).png' %}" height="39px" width="auto">
                     </button>
-                    <div>
-                        <h1 class="text-center header-text">{{page}}</h1>
-                    </div>
+
+                        <span class="text-center align-top fs-2 text-light">{{page}}</span>
+
                     <a class="navbar-brand" href="#">
                         <img src="{% static 'main/image/icon/FindIcon.png' %}" height="39px" width="auto">
                     </a>
