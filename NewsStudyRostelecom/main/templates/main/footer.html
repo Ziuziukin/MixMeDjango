@@ -1,32 +1,37 @@
 {% load static %}
 
+<div class="container" style="height: 50px"></div>
 <footer>
-    <div class="fixed-bottom">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-2">
-                <a class="icon_footer" href="#">
-                    <img src="{% static 'main/image/icon/BackIcon.png' %}" height="39px" width="auto">
-                </a>
-                    </div>
-                <div class="col-2">
-                <a class="icon_footer" href="#">
-                    <img src="{% static 'main/image/icon/TasteIconInactive.png' %}" height="39px" width="auto">
-                </a>
-                    </div>
-                <div class="col-2">
-                <a class="icon_footer" href="#">
-                    <img src="{% static 'main/image/icon/MixIconInactive.png' %}" height="39px" width="auto">
-                </a>
-                    </div>
-                <div class="col-2">
-                <a class="icon_footer" href="#">
-                    <img src="{% static 'main/image/icon/FilterIcon.png' %}" height="39px" width="auto">
-                </a>
-                    </div>
-            </div>
+  <div class="fixed-bottom">
+    <div class="container-fluid">
+      <div class="row p-3 m-0">
+        <div class="col-3 m-auto text-center">
+          <a class="icon_footer" href="#">
+            <img src="{% static 'main/image/icon/BackIcon.png' %}" height="39px" width="auto">
+
+          </a>
         </div>
+        <div class="col-3 m-auto text-center">
+          <a class="icon_footer " href="#">
+            <img src="{% static 'main/image/icon/TasteIconInactive.png' %}" height="39px" width="auto">
+
+          </a>
+        </div>
+        <div class="col-3 m-auto text-center">
+          <a class="icon_footer mx-auto" href="#">
+            <img src="{% static 'main/image/icon/MixIconInactive.png' %}" height="39px" width="auto">
+
+          </a>
+        </div>
+        <div class="col-3 m-auto text-center">
+          <a class="icon_footer mx-auto" href="#">
+            <img src="{% static 'main/image/icon/FilterIcon.png' %}" height="39px" width="auto">
+
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
 </footer>
 
 <script src="script.js"></script>

@@ -9,8 +9,6 @@
 
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
 {% include 'main/header.html' %}
-{% include 'main/footer.html' %}
-{% include 'main/sidebar.html' %}
 
 <section class="tastes_list">
     <div class="container">
@@ -31,7 +29,9 @@
     </div>
 </section>
 
-<script src="script.js"></script>
+{% include 'main/footer.html' %}
+{% include 'main/sidebar.html' %}
+
 </body>
 
 </html>
