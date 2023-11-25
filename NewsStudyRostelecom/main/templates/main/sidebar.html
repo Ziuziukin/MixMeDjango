@@ -3,26 +3,42 @@
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
      aria-labelledby="offcanvasExampleLabel" style="background-color: #29282E">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Меню</h5>
+    <div class="offcanvas-header pb-0">
+        <a href="/account/1" class="link-light">
+            <div>
+                <img src="{% static 'main/image/user_image/default_user.png' %}"
+                     alt="Пользователь"
+                     style="width:auto; height: 50px">
+                <p> e-mail пользователя </p>
+            </div>
+        </a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
     </div>
-    <div class="offcanvas-body">
-        <div class="row">
-            <a href="/account/1" class="link-light col 12">
-                    <img src="{% static 'main/image/user_image/default_user.png' %}"
-                         alt="Пользователь"
-                         style="width:auto; height: 50px">
-                    e-mail пользователя
+    <div class="offcanvas-body pt-0">
+        <hr class="dropdown-divider text-light">
+        <div class="pt-1 pb-1">
+
+            <a href="#" class="link-light">
+                <img src="{% static 'main/image/icon/card.png' %}" height="35px">
+                Список покупок
             </a>
         </div>
-        <div>
-            <ul>
-                <li><a href="#" class="link-light">Список покупок</a></li>
-                <li><a href="/inform_app" class="link-light">О приложении</a></li>
-                <li><a href="#" class="link-light">Выход</a></li>
-            </ul>
+        <div class="pt-1 pb-1">
+
+            <a href="/inform_app" class="link-light">
+                <img src="{% static 'main/image/icon/info.png' %}" height="35px">
+                О приложении
+            </a>
+        </div>
+        <div class="pt-1 pb-1">
+
+            <a href="#" class="link-light">
+                <img src="{% static 'main/image/icon/logout.png' %}" height="35px">
+                Выход
+            </a>
         </div>
     </div>
+</div>
 </div>
 
