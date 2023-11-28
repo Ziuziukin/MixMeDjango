@@ -1,20 +1,38 @@
 {% load static %}
 
 <section class="taste_info">
-    <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+    <div class="container fluid">
+        <div class="row mx-3">
+            <div class="ratio ratio-4x3 fluid">
 
-                <img src="{% static taste_info.5 %}" class="img-fluid rounded-3 ps-3 mx-auto">
+                <img src="{% static taste_info.5 %}" class="rounded-3">
             </div>
-            <p class="col-12 col-md-12 col-lg-6 col-xl-6 fs-5 text-light">
-                Бренд - {{taste_info.3}}
-            </p>
-          <p class="col-12 col-md-12 col-lg-6 col-xl-6 fs-6 text-light">
+        </div>
+        <div class="row col-12 mt-3 mx-auto">
+            <div class="col-3 mx-0 px-0"></div>
+            <h1 class="display-2 mt-auto mb-auto col-3 text-center align-top">
+                <b class="gradient">10</b>
+            </h1>
+            <img class="col-3 mx-auto d-block img-fluid"
+                 src="{% static 'main/image/icon/MixIconInactive.png' %}">
+            <div class="col-3 mx-0 px-0"></div>
+        </div>
+        <div class="row mx-3 pt-0 m-auto">
+            <p class="text-center align-top">Сколько миксов?</p>
+        </div>
+        <div class="row mx-3 mt-2 mb-2">
+            <h3 class="text-light mb-1">
+                Бренд </h3>
+            <h5 class="mb-0 text-light">{{taste_info.3}}
+            </h5>
+        </div>
+        <div class="row mx-3 pt-1">
+            <p class="fs-6 text-light">
                 Крепость - {{taste_info.2}}
             </p>
-            <hr class="dropdown-divider text-light">
         </div>
+
+
     </div>
     </div>
 
