@@ -6,12 +6,12 @@
             {% for brand in brand_info %}
             <div class="col-12 col-md-12 col-lg-6 col-xl-6 mb-3">
                 <div class="img_brand_list">
-                    <a href="/brand?brand_name={{brand.0}}" class="ratio" style="--bs-aspect-ratio: 33%;">
-                        <img src="{% static brand.1 %}" class="img_brand rounded" style="display: block; background-color: transparent;">
+                    <a href="/brand?brand_name={{brand.brand_name}}" class="ratio" style="--bs-aspect-ratio: 33%;">
+                        <img src="static/main/image/brand_image/{{brand.brand_name}}.jpg" class="img_brand rounded" style="display: block; background-color: transparent;">
                     </a>
                 </div>
                 <p class="col-12 col-md-12 col-lg-6 col-xl-6 mt-0 mb-0">
-                    {{brand.0}}
+                    {{brand.brand_name}}
                 </p>
             </div>
             {% endfor %}

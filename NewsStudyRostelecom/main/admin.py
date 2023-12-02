@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+class BrandsAdmin(admin.ModelAdmin):
+    list_display = ['brand_name', 'site_brand', 'brand_author']
+
+admin.site.register(Brands, BrandsAdmin)

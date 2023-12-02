@@ -1,18 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from .models import *
 
 #Заглавная страница со списком брендов
 def index(request):
-    with open('temp_db/brand_name.csv', 'r', encoding='utf8', errors='ignore') as file:
-        brand = []
-        for line in file:
-            x = []
-            line = line.replace('\n', '')
-            if line != '':
-                x.append(line)
-                line = 'main/image/brand_image/' + line + '.jpg'
-                x.append(line)
-                brand.append(x)
+    #вызываем модель Brands
+    brand = Brands.objects.all().order_by('brand_name')
 
     context = {'brand_info': brand,
                'page': 'Бренды',
@@ -80,4 +73,7 @@ def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Ой, что-то пошло не так. Страница не найдена. Теперь есть время перезабить кальян!</h1>')
 
 def mix(request):
-    return render(request, 'main/mix.html')
+    context = {'page': 'Миксы',
+               'title': 'Mix.Me'}
+
+    return render(request, 'main/mix.html', context)
