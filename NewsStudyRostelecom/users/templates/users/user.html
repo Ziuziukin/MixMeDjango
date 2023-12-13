@@ -1,0 +1,47 @@
+{% load static %}
+
+<section class="taste_info">
+    <div class="container fluid px-0">
+        <div class="row mx-5">
+            <div class="text-center">
+                <img src="{% static '' %}{{ user_info.account_image }}" class="rounded-circle ratio ratio-1x1 user_image">
+            </div>
+        </div>
+        <div class="row mx-3 pt-1">
+            <p class="fs-4 mb-0 pb-0 text-light text-center">
+                {{ user_info.user.first_name }}
+            </p>
+            <p class="fs-6 text-light text-center">
+                {{ user_info.user.email }}
+            </p>
+        </div>
+        <hr class="hr text-light my-2">
+        <div class="row mx-2 pt-2">
+            <div class="col-6">
+            <p class="fs-6 mb-0 pb-0 text-light">
+                Дата рождения
+            </p>
+        </div>
+        <div class="col-6">
+            <p class="fs-6 text-light text-end">
+                {{ user_info.birthdate }}
+            </p>
+            </div>
+        </div>
+                <div class="row mx-2 pt-2">
+            <div class="col-6">
+            <p class="fs-6 mb-0 pb-0 text-light">
+                Логин
+            </p>
+        </div>
+        <div class="col-6">
+            <p class="fs-6 text-light text-end">
+                {{ user_info.user.username }}
+            </p>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>

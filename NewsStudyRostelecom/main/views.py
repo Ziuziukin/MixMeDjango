@@ -62,10 +62,6 @@ def taste(request, id_taste):
                'title': f'Mix.Me {taste[1]}'}
     return render(request, 'main/taste.html', context)
 
-def account(request, id_user):
-    context = {'id_user': id_user}
-    return render(request, 'main/account.html', context)
-
 def inform_app(request):
     return render(request, 'main/inform_app.html')
 

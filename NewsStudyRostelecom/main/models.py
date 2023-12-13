@@ -11,5 +11,14 @@ class Brands(models.Model):
     def __str__(self):
         return self.brand_name
 
-    def get_absolute_url(self):
-        return self.brand_name
+    class Meta:
+        ordering = ['brand_name']
+        verbose_name = 'Бренд'
+        verbose_name_plural = 'Бренды'
+
+
+
+#добавление тегов - 2:01:52, урок 7
+#оптимизация запросов - урок 8
+#дженерик, формы django - урок 9
+

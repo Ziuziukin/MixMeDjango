@@ -1,0 +1,54 @@
+body {
+ background-color: #29282E;
+}
+
+h1, h2, h3, h7 {
+ color: white;
+ font-size: calc(16px + 16 * (100vw / 1280));
+}
+
+p {
+color: white;
+font-size: calc(10px + 16 * (100vw / 1280));
+}
+
+h4 {
+ color: white;
+ font-size: calc(8px + 10 * (100vw / 1280));
+}
+
+h5 {
+ color: white;
+ font-size: calc(12px + 14 * (100vw / 1280));
+}
+
+.user_image {
+    max-width: 250px;
+    height: auto;
+}
+
+.gradient {
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(135deg, #6667AA, #E3455E, fuchsia);
+}
+
+.tag {
+ color: white;
+ font-size: calc(10px + 12 * (100vw / 1280));
+}
+
+.fixed-top, .fixed-bottom {
+ background-color: #29282E;
+}
+
+.fixed-bottom {
+ background-color: rgba(41, 40, 46, 0.95); /* Фон веб-страницы */
+ backdrop-filter: blur(4px);
+}
+
+a {
+text-decoration: none;
+color: white;
+}
