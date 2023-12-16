@@ -6,10 +6,13 @@
     <div class="offcanvas-header pb-0">
         <a href="/account/" class="link-light">
             <div>
-                <img src="{% static 'main/image/user_image/default_user.png' %}"
+                {% if user.is_authenticated %}
+                <img src="{% static '' %}{{ user.account.account_image }}"
+                     class="rounded-circle ratio ratio-1x1"
                      alt="Пользователь"
                      style="width:auto; height: 50px">
-                <p> e-mail пользователя </p>
+                <p class="fs-6 text-light text-center"> {{ user.first_name }} </p>
+                {% endif %}
             </div>
         </a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -18,25 +21,29 @@
     <div class="offcanvas-body pt-0">
         <hr class="dropdown-divider text-light">
         <div class="pt-1 pb-1">
-
             <a href="#" class="link-light">
                 <img src="{% static 'main/image/icon/card.png' %}" height="35px">
                 Список покупок
             </a>
         </div>
         <div class="pt-1 pb-1">
-
             <a href="/inform_app" class="link-light">
                 <img src="{% static 'main/image/icon/info.png' %}" height="35px">
                 О приложении
             </a>
         </div>
         <div class="pt-1 pb-1">
-
-            <a href="#" class="link-light">
+            {% if user.is_authenticated %}
+            <a href="/account/logout" class="link-light">
                 <img src="{% static 'main/image/icon/logout.png' %}" height="35px">
                 Выход
             </a>
+            {% else %}
+            <a href="/account/login" class="link-light">
+                <img src="{% static 'main/image/icon/login.png' %}" height="35px">
+                Войти
+            </a>
+            {% endif %}
         </div>
         <div class="mt-3">
             <img class="img-fluid" src="{% static 'main/image/icon/LogoSmall.png' %}">

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from .models import *
 
+
 #Заглавная страница со списком брендов
 def index(request):
     #вызываем модель Brands
@@ -9,7 +10,8 @@ def index(request):
 
     context = {'brand_info': brand,
                'page': 'Бренды',
-               'title': 'Mix.Me'}
+               'title': 'Mix.Me',
+               }
 
     return render(request, 'main/index.html', context)
 
