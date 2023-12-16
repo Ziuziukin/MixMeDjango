@@ -9,7 +9,6 @@
                 {% if user.is_authenticated %}
                 <img src="{% static '' %}{{ user.account.account_image }}"
                      class="rounded-circle ratio ratio-1x1"
-                     alt="Пользователь"
                      style="width:auto; height: 50px">
                 <p class="fs-6 text-light text-center"> {{ user.first_name }} </p>
                 {% endif %}
@@ -42,6 +41,9 @@
             <a href="/account/login" class="link-light">
                 <img src="{% static 'main/image/icon/login.png' %}" height="35px">
                 Войти
+            </a>
+            <a href="/account/registration" class="link-light">
+                | Зарегистрироваться
             </a>
             {% endif %}
         </div>

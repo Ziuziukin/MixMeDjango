@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
-from .forms import LoginUserForm
+from .forms import LoginUserForm, RegistrationUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
@@ -25,6 +25,18 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
+
+def registration(request):
+    if request.method == 'POST':
+        form = RegistrationUserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            return render(request, 'users/registration_done.html')
+    else:
+        form = RegistrationUserForm()
+    return render(request, 'users/registration.html', {'form': form})
 
 #функция отображения информации ЛК пользователя
 def account(request):
