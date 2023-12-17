@@ -65,7 +65,9 @@ def taste(request, id_taste):
     return render(request, 'main/taste.html', context)
 
 def inform_app(request):
-    return render(request, 'main/inform_app.html')
+    context = {'page': 'О приложении MixMe',
+               'title': f'О приложении Mix.Me'}
+    return render(request, 'main/inform_app.html', context)
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Ой, что-то пошло не так. Страница не найдена. Теперь есть время перезабить кальян!</h1>')

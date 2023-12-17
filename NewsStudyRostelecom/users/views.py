@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from .forms import LoginUserForm, RegistrationUserForm
@@ -8,7 +8,9 @@ from django.contrib.auth.forms import UserCreationForm
 
 #функция авторизации пользователя
 def login_user(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        return redirect(reverse('home'))
+    elif request.method == 'POST':
         form = LoginUserForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
@@ -27,7 +29,9 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('home'))
 
 def registration(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        return redirect(reverse('home'))
+    elif request.method == 'POST':
         form = RegistrationUserForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
@@ -40,7 +44,10 @@ def registration(request):
 
 #функция отображения информации ЛК пользователя
 def account(request):
-    user_acc = Account.objects.get(user=request.user)
-    context = {'user_info': user_acc,
-               }
-    return render(request, 'users/account.html', context=context)
+    if not request.user.is_authenticated:
+        return redirect(reverse('login'))
+    else:
+        user_acc = Account.objects.get(user=request.user)
+        context = {'user_info': user_acc,
+                   }
+        return render(request, 'users/account.html', context=context)

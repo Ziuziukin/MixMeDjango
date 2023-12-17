@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="container" style="height: 55px" xmlns="http://www.w3.org/1999/html"></div>
+<header>
+    <div class="fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar">
+                    <button class="btn btn" onclick="history.back();">
+                        <img src="{% static 'main/image/icon/BackIcon.png' %}" height="39px" width="auto">
+                    </button>
+                        <h1 class="text-center align-top">{{page}}</h1>
+                    <button class="btn btn">
+                        <a href="#">
+                        <img src="{% static 'main/image/icon/Plug.png' %}" height="39px" width="auto">
+                        </a>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

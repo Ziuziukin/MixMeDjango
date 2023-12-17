@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}"/>
     <title>Авторизация</title>
 </head>
+
 <body>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <p><button type="submit">Войти</button></p>
-</form>
+<div class="container fluid mt-3 px-0 text-center">
+    <h1 class="text-center align-top p-2">Авторизация</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>
+            <button type="submit" class="btn btn-light">Войти</button>
+        </p>
+    </form>
+    <div class="container fluid mt-3 px-0 text-center">
+        <p>
+            <a href="#">
+            <button type="button" class="btn btn-outline-secondary text-white">Забыли пароль?</button>
+        </a>
+        </p>
+    </div>
+    <div class="container fluid mt-3 px-0 text-center">
+        <p>
+            <a href="/account/registration/">
+            <button type="button" class="btn btn-outline-secondary text-white">Зарегистрироваться</button>
+        </a>
+        </p>
+    </div>
+</div>
 </body>
 </html>
