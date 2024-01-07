@@ -2,7 +2,7 @@ body {
  background-color: #29282E;
 }
 
-h1, h2, h3, h7 {
+h1, h2, h3, h6, h7 {
  color: white;
  font-size: calc(16px + 16 * (100vw / 1280));
 }

@@ -47,3 +47,7 @@ a {
 text-decoration: none;
 color: white;
 }
+
+.img_taste {
+max-height: 300px;
+}
