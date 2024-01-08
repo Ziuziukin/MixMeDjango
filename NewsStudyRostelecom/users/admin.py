@@ -13,3 +13,8 @@ class AccountAdmin(admin.ModelAdmin):
     get_account_image.shrt_description = 'Изображение'
 
 admin.site.register(Account, AccountAdmin)
+
+class Favorite_TasteAccountAdmin(admin.ModelAdmin):
+    list_display = ['user_id_favorite', 'taste_id_favorite', 'favorite_choices']
+
+admin.site.register(Favorite_Taste, Favorite_TasteAccountAdmin)

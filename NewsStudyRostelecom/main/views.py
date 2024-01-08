@@ -1,6 +1,8 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from .models import *
+from users.models import *
 
 
 #Заглавная страница со списком брендов
@@ -33,11 +35,26 @@ def tastes_brand(request):
 
 #Вызов страницы для отображения конкретного вкуса
 def taste(request, id_taste):
+
     taste = Tastes.objects.get(id=int(id_taste))
-    print(taste.strength_taste)
+    try:
+        favorite_taste = Favorite_Taste.objects.get(user_id_favorite=request.user.id, taste_id_favorite=id_taste)
+        favorite = favorite_taste.favorite_choices
+    except ObjectDoesNotExist:
+        favorite = None
+
     context = {'taste_info': taste,
                'page': taste.name_taste,
-               'title': f'Mix.Me {taste.name_taste}'}
+               'title': f'Mix.Me {taste.name_taste}',
+               'favorite': favorite}
+
+    if request.method == 'POST' and favorite == None:
+        favorite_choise = Favorite_Taste.objects.create(user_id_favorite=request.user, taste_id_favorite=Tastes.objects.get(id=int(id_taste)), favorite_choices=request.POST.get('Choise'))
+        return render(request, 'main/taste.html', context)
+    elif request.method == 'POST' and favorite != None:
+        favorite_choise = Favorite_Taste.objects.filter(user_id_favorite=request.user.id, taste_id_favorite=id_taste).update(favorite_choices=request.POST.get('Choise'))
+        return render(request, 'main/taste.html', context)
+
     return render(request, 'main/taste.html', context)
 
 def inform_app(request):

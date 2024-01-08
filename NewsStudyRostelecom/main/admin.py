@@ -12,3 +12,4 @@ class TastesAdmin(admin.ModelAdmin):
     list_filter = ['name_taste', 'taste_rus', 'strength_taste']
 
 admin.site.register(Tastes, TastesAdmin)
+
