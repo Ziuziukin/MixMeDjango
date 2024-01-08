@@ -9,7 +9,7 @@
                 </a>
             </div>
             <div class="col ratio ratio-4x3">
-                <img src="{% static taste_info.5 %}" class="rounded-3">
+                <img src="{% static taste_info.taste_image %}" class="rounded-3">
             </div>
             <div class="col-2 mx-auto text-center">
                 <a href="#">
@@ -29,17 +29,49 @@
         <div class="row mx-3 pt-0 m-auto">
             <p class="text-center align-top">Сколько миксов?</p>
         </div>
-        <div class="row mx-3 mt-2 mb-2">
-            <h3 class="text-light mb-1">
-                Бренд </h3>
-            <h5 class="mb-0 text-light">{{taste_info.3}}
-            </h5>
-        </div>
-        <div class="row mx-3 pt-1">
-            <p class="fs-6 text-light">
-                Крепость - {{taste_info.2}}
+        <div class="row mx-3 mt-3 mb-2">
+            <p class="fs-5 text-light mb-1">
+                Бренд </p>
+            <p class="fs-6 text-light mb-0">
+                {{taste_info.brand_id.brand_name}}
             </p>
         </div>
+        <div class="row mx-3 mt-3 mb-2">
+            <p class="fs-5 text-light mb-1">
+                Крепкость
+            </p>
+            <div class="row mx-auto align-items-center">
+                <div class="col-2 mx-auto text-center">
+                    <img src="{% static 'main/image/icon/Reliability.png' %}" height="30px" width="auto">
+                </div>
+                <div class="col-10 mx-auto text-center">
+                    {% if taste_info.strength_taste == 1 %}
+                    <img src="{% static 'main/image/icon/Reliability1.png' %}" height="30px" width="auto">
+                    {% elif taste_info.strength_taste == 2 %}
+                    <img src="{% static 'main/image/icon/Reliability2.png' %}" height="30px" width="auto">
+                    {% elif taste_info.strength_taste == 3 %}
+                    <img src="{% static 'main/image/icon/Reliability3.png' %}" height="30px" width="auto">
+                    {% elif taste_info.strength_taste == 4 %}
+                    <img src="{% static 'main/image/icon/Reliability4.png' %}" height="30px" width="auto">
+                    {% elif taste_info.strength_taste == 5 %}
+                    <img src="{% static 'main/image/icon/Reliability5.png' %}" height="30px" width="auto">
+                    {% endif %}
+                </div>
+
+            </div>
+            </div>
+        <div class="row mx-3 mt-3 mb-2">
+            <p class="fs-5 text-light mb-1">
+                О вкусе
+            </p>
+            <p class="fs-7 text-light mb-0">
+                {{ taste_info.desc_taste }}
+            </p>
+
+
+        </div>
+
+
 
 
     </div>

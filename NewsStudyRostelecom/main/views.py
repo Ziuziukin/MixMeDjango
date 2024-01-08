@@ -33,18 +33,11 @@ def tastes_brand(request):
 
 #Вызов страницы для отображения конкретного вкуса
 def taste(request, id_taste):
-    with open('temp_db/taste.csv', 'r', encoding='utf8', errors='ignore') as file:
-        taste = []
-        for line in file:
-            line = line.replace('\n', '')
-            line = line.split(';')
-            if line[0] == str(id_taste):
-                taste = line
-                taste.append(f'main/image/taste/{line[3]}/{line[1]}.jpg')
-
+    taste = Tastes.objects.get(id=int(id_taste))
+    print(taste.strength_taste)
     context = {'taste_info': taste,
-               'page': taste[1],
-               'title': f'Mix.Me {taste[1]}'}
+               'page': taste.name_taste,
+               'title': f'Mix.Me {taste.name_taste}'}
     return render(request, 'main/taste.html', context)
 
 def inform_app(request):
