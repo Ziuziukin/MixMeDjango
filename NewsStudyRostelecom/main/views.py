@@ -15,37 +15,20 @@ def index(request):
 
     return render(request, 'main/index.html', context)
 
-#Вызов страницы для отображения вкусов бренда
+#Вызов страницы для отображения вкусов бренда или всех вкусов
 def tastes_brand(request):
-    with open('temp_db/taste.csv', 'r', encoding='Windows-1251') as file:
-        brand_name = request.GET.get("brand_name", 'Вкусы')
-        tastes = []
-        for line in file:
-            line = line.replace('\n', '')
-            line = line.split(';')
-            x = []
-            if brand_name == 'Вкусы':
-                x.append(line[0])
-                x.append(line[1])
-                x.append(line[2])
-                x.append(line[3])
-                x.append(f'main/image/taste/{line[3]}/{line[1]}.jpg')
-                x.append(line[4])
-                tastes.append(x)
-            elif brand_name != 'all' and line[3] == brand_name:
-                x.append(line[0])
-                x.append(line[1])
-                x.append(line[2])
-                x.append(line[3])
-                x.append(f'main/image/taste/{line[3]}/{line[1]}.jpg')
-                x.append(line[4])
-                tastes.append(x)
+    brand_id = request.GET.get("brand_id", 'Вкусы')
+    if brand_id == 'Вкусы':
+        tastes = Tastes.objects.all().order_by('name_taste')
+        brand = 'Вкусы'
+    else:
+        tastes = Tastes.objects.filter(brand_id=brand_id).order_by('name_taste')
+        brand = Brands.objects.get(id=int(brand_id))
 
-    context = {'brand': brand_name,
+    context = {'brand': brand,
                'tastes_list': tastes,
-               'page': brand_name,
-               'title': f'Mix.Me {brand_name}'}
-
+               'page': brand,
+               'title': f'Mix.Me {brand}'}
     return render(request, 'main/tastes_brand.html', context)
 
 #Вызов страницы для отображения конкретного вкуса
