@@ -9,7 +9,7 @@
         </div>
         <div class="row mx-3 pt-1">
             <p class="fs-4 mb-0 pb-0 text-light text-center">
-                {{ user_info.user.first_name }}
+                {{ user_info.user.username }}
             </p>
             <p class="fs-6 text-light text-center">
                 {{ user_info.user.email }}
@@ -18,26 +18,50 @@
         <hr class="hr text-light my-2">
         <div class="row mx-2 pt-2">
             <div class="col-6">
-            <p class="fs-6 mb-0 pb-0 text-light">
-                Дата рождения
-            </p>
-        </div>
-        <div class="col-6">
-            <p class="fs-6 text-light text-end">
-                {{ user_info.birthdate }}
-            </p>
+                <p class="fs-6 mb-0 pb-0 text-light">
+                    Дата рождения
+                </p>
+            </div>
+            <div class="col-6">
+                <p class="fs-6 text-light text-end">
+                    {% if user_info.birthdate == None %}
+                    Не указано
+                    {% else %}
+                    {{ user_info.birthdate }}
+                    {% endif %}
+                </p>
             </div>
         </div>
-                <div class="row mx-2 pt-2">
+        <div class="row mx-2 pt-2">
             <div class="col-6">
-            <p class="fs-6 mb-0 pb-0 text-light">
-                Логин
-            </p>
+                <p class="fs-6 mb-0 pb-0 text-light">
+                    Имя пользователя
+                </p>
+            </div>
+            <div class="col-6">
+                <p class="fs-6 text-light text-end">
+                    {% if user_info.user.first_name == '' %}
+                    Не указано
+                    {% else %}
+                    {{ user_info.user.first_name }}
+                    {% endif %}
+                </p>
+            </div>
         </div>
-        <div class="col-6">
-            <p class="fs-6 text-light text-end">
-                {{ user_info.user.username }}
-            </p>
+        <div class="row mx-2 pt-2">
+            <div class="col-6">
+                <p class="fs-6 mb-0 pb-0 text-light">
+                    Email пользователя
+                </p>
+            </div>
+            <div class="col-6">
+                <p class="fs-6 text-light text-end">
+                    {% if user_info.user.email == '' %}
+                    Не указано
+                    {% else %}
+                    {{ user_info.user.email }}
+                    {% endif %}
+                </p>
             </div>
         </div>
 

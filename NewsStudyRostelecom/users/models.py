@@ -9,7 +9,7 @@ class Account(models.Model):
                       ('Ж', 'Женский'),
                       ('НД', 'Нет данных'))
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    birthdate = models.DateField(null=True)
+    birthdate = models.DateField(null=True, blank=True)
     gender = models.CharField(choices=gender_choices, max_length=20)
     account_image = models.ImageField(default='account_images/default_user.jpg', upload_to='account_images')
 

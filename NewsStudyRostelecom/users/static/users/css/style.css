@@ -52,3 +52,11 @@ a {
 text-decoration: none;
 color: white;
 }
+
+.btn_confirm {
+background-color: #E3455E;
+}
+
+.logo_image {
+    max-width: 300px;
+    height: auto;

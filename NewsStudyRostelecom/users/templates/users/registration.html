@@ -15,23 +15,36 @@
     color: red;
    }
     </style>
+</head>
 
 <body>
 <div class="container fluid mt-3 px-0 text-center">
     <h1 class="text-center align-top p-2">Регистрация</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
         <p>
-            <button type="submit" class="btn btn-light">Зарегистрироваться</button>
+        <label class="form-label col-3" for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+        {{ form.username }}
         </p>
+        <div class="form-error">{{ form.username.errors }}</div>
+        <p>
+            <label class="form-label col-3" for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+            {{ form.password }}
+        </p>
+        <p>
+            <label class="form-label col-3" for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+            {{ form.password2 }}
+        </p>
+        <div class="form-error">{{ form.password2.errors }}</div>
+        <button type="submit" style="color: white;" class="btn btn_confirm">Зарегистрироваться</button>
     </form>
     <div class="container fluid mt-3 px-0 text-center">
-        <p>
-            <a href="/account/login/">
+        <a href="/account/login/">
             <button type="button" class="btn btn-outline-secondary text-white">Уже есть аккаунт?</button>
         </a>
-        </p>
+    </div>
+    <div class="row align-items-center justify-content-center mx-auto flex mt-3">
+        <img class="img-fluid logo_image" src="{% static 'main/image/icon/LogoSmall.png' %}">
     </div>
 </div>
 </body>

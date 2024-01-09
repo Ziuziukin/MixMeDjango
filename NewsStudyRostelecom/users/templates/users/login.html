@@ -22,24 +22,31 @@
     <h1 class="text-center align-top p-2">Авторизация</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-error">{{ form.non_field_errors }}</div>
         <p>
-            <button type="submit" class="btn btn-light">Войти</button>
+            <label class="form-label col-3" for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+            {{ form.username }}
         </p>
+        <p>
+            <label class="form-label col-3" for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+            {{ form.password }}
+        </p>
+        <button type="submit" style="color: white;" class="btn btn_confirm">Войти</button>
     </form>
     <div class="container fluid mt-3 px-0 text-center">
-        <p>
-            <a href="#">
+        <a href="#">
             <button type="button" class="btn btn-outline-secondary text-white">Забыли пароль?</button>
         </a>
-        </p>
     </div>
     <div class="container fluid mt-3 px-0 text-center">
-        <p>
-            <a href="/account/registration/">
-            <button type="button" class="btn btn-outline-secondary text-white">Зарегистрироваться</button>
+        <a href="/account/registration/">
+            <button type="button" class="btn btn-outline-secondary text-white" href="/account/registration/">
+                Зарегистрироваться
+            </button>
         </a>
-        </p>
+    </div>
+    <div class="row align-items-center justify-content-center mx-auto flex mt-3">
+        <img class="img-fluid logo_image" src="{% static 'main/image/icon/LogoSmall.png' %}">
     </div>
 </div>
 </body>

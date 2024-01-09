@@ -51,3 +51,9 @@ color: white;
 .img_taste {
 max-height: 300px;
 }
+
+.taste_image {
+    max-width: 350px;
+    height: auto;
+   }
+
