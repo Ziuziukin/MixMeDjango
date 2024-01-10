@@ -79,3 +79,15 @@ def mix(request):
                'title': 'Mix.Me'}
 
     return render(request, 'main/mix.html', context)
+
+#Вызов страницы для отображения вкусов бренда или всех вкусов
+def for_me(request):
+    favorite_list = Favorite_Taste.objects.filter(user_id_favorite=request.user.id, favorite_choices=1)
+    print(favorite_list)
+    tastes = Tastes.objects.filter(id__in=favorite_list).order_by('name_taste')
+
+
+    context = {'tastes_list': tastes,
+               'page': "Обо мне",
+               'title': f'Mix.Me Обо мне'}
+    return render(request, 'main/for_me.html', context)
