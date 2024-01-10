@@ -57,3 +57,8 @@ max-height: 300px;
     height: auto;
    }
 
+
+.qr_app {
+    max-width: 350px;
+    height: auto;
+   }
