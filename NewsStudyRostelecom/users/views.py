@@ -1,9 +1,12 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
+from django.views.generic import UpdateView
+
 from .models import *
-from .forms import LoginUserForm, RegistrationUserForm
-from django.contrib.auth import authenticate, login, logout
-from django.urls import reverse
+from .forms import LoginUserForm, RegistrationUserForm, ProfileUserForm
+from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 
 #функция авторизации пользователя
@@ -59,11 +62,23 @@ def registration(request):
     return render(request, 'users/registration.html', {'form': form})
 
 #функция отображения информации ЛК пользователя
-def account(request):
-    if not request.user.is_authenticated:
-        return redirect(reverse('login'))
-    else:
-        user_acc = Account.objects.get(user=request.user)
-        context = {'user_info': user_acc,
-                   }
-        return render(request, 'users/account.html', context=context)
+# def account(request):
+#     if not request.user.is_authenticated:
+#         return redirect(reverse('login'))
+#     else:
+#         user_acc = Account.objects.get(user=request.user)
+#         context = {'user_info': user_acc,
+#                    }
+#         return render(request, 'users/account.html', context=context)
+
+class ProfileUser(LoginRequiredMixin, UpdateView):
+    model = get_user_model()
+    form_class = ProfileUserForm
+    template_name = 'users/account.html'
+
+
+    def get_success_url(self):
+        return reverse_lazy('account')
+
+    def get_object(self, queryset=None):
+        return self.request.user

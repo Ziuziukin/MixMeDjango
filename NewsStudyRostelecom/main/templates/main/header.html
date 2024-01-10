@@ -1,6 +1,11 @@
 {% load static %}
 
-<div class="container" style="height: 55px"></div>
+{% url 'brand' as my_view %}
+{% if request.path == my_view %}
+<div class="container" style="height: 100px"></div>
+{% else %}
+<div class="container" style="height: 50px"></div>
+{% endif %}
 <header>
     <div class="fixed-top">
         <div class="container-fluid">
@@ -20,6 +25,29 @@
                     </a>
                 </nav>
             </div>
+            {% url 'brand' as my_view %}
+            {% if request.path == my_view %}
+            <div class="row mb-2 mx-3">
+                <a href="{{ request.build_absolute_uri }}&strong=all" class="col-2 text-center m-auto">
+            <img src="{% static 'main/image/icon/Reliability.png' %}" height="25px" width="25px">
+                    </a>
+            <a href="{{ request.build_absolute_uri }}&strong=1" class="col-2 text-center m-auto">
+                        <img src="{% static 'main/image/icon/1Reliability.png' %}" height="25px">
+                    </a>
+            <a href="{{ request.build_absolute_uri }}&strong=2" class="col-2 text-center m-auto">
+                        <img src="{% static 'main/image/icon/2Reliability.png' %}" height="25px">
+                    </a>
+            <a href="{{ request.build_absolute_uri }}&strong=3" class="col-2 text-center m-auto">
+                        <img src="{% static 'main/image/icon/3Reliability.png' %}" height="25px">
+                    </a>
+            <a href="{{ request.build_absolute_uri }}&strong=4" class="col-2 text-center m-auto">
+                        <img src="{% static 'main/image/icon/4Reliability.png' %}" height="25px">
+                    </a>
+            <a href="{{ request.build_absolute_uri }}&strong=5" class="col-2 text-center m-auto">
+                        <img src="{% static 'main/image/icon/5Reliability.png' %}" height="25px">
+                    </a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </header>

@@ -14,7 +14,7 @@
           </a>
         </div>
         <div class="col-3 m-auto p-0 text-center">
-          <a class="icon_footer" {% if request.resolver_match.view_name == 'brand' %} {% else %} href="{% url 'brand' %}" {% endif %}>
+          <a class="icon_footer" {% if request.resolver_match.view_name == 'brand' %} {% else %} href="{% url 'brand' %}?brand_id=all" {% endif %}>
             <img {% if request.resolver_match.view_name == 'brand' %} src="{% static 'main/image/icon/TasteIconActive.png' %}" {% else %} src="{% static 'main/image/icon/TasteIconInactive.png' %}" {% endif %} height="39px" width="auto">
           <h4 class="text-xs col-12 text-white-50 lh-1 mt-0 mb-1 text-nowrap text-truncate">
                     Вкусы

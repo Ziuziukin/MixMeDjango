@@ -4,68 +4,25 @@
     <div class="container fluid px-0">
         <div class="row mx-5">
             <div class="text-center">
-                <img src="{% static user_info.account_image %}" class="rounded-circle ratio ratio-1x1 user_image">
+                <img src="{% static user.account.account_image %}" class="rounded-circle ratio ratio-1x1 user_image">
             </div>
         </div>
         <div class="row mx-3 pt-1">
             <p class="fs-4 mb-0 pb-0 text-light text-center">
-                {{ user_info.user.username }}
-            </p>
-            <p class="fs-6 text-light text-center">
-                {{ user_info.user.email }}
+                {{ user.username }}
             </p>
         </div>
-        <hr class="hr text-light my-2">
-        <div class="row mx-2 pt-2">
-            <div class="col-6">
-                <p class="fs-6 mb-0 pb-0 text-light">
-                    Дата рождения
+        <form method="post">
+        {% csrf_token %}
+            <div class="form-error">{{ form.non_field_errors}}</div>
+        <hr class="hr align-items-center justify-content-center col-6 mx-auto text-light my-2">
+            {% for f in form %}
+                <p class="fs-6 align-items-center justify-content-center col-6 mx-auto text-light my-2">
+                    <label class="form-label col-6" for="{{ f.id_for_label }}">{{ f.label }}: </label>
+            {{ f }}
                 </p>
-            </div>
-            <div class="col-6">
-                <p class="fs-6 text-light text-end">
-                    {% if user_info.birthdate == None %}
-                    Не указано
-                    {% else %}
-                    {{ user_info.birthdate }}
-                    {% endif %}
-                </p>
-            </div>
-        </div>
-        <div class="row mx-2 pt-2">
-            <div class="col-6">
-                <p class="fs-6 mb-0 pb-0 text-light">
-                    Имя пользователя
-                </p>
-            </div>
-            <div class="col-6">
-                <p class="fs-6 text-light text-end">
-                    {% if user_info.user.first_name == '' %}
-                    Не указано
-                    {% else %}
-                    {{ user_info.user.first_name }}
-                    {% endif %}
-                </p>
-            </div>
-        </div>
-        <div class="row mx-2 pt-2">
-            <div class="col-6">
-                <p class="fs-6 mb-0 pb-0 text-light">
-                    Email пользователя
-                </p>
-            </div>
-            <div class="col-6">
-                <p class="fs-6 text-light text-end">
-                    {% if user_info.user.email == '' %}
-                    Не указано
-                    {% else %}
-                    {{ user_info.user.email }}
-                    {% endif %}
-                </p>
-            </div>
-        </div>
-
-
+            {% endfor %}
+            <p class="fs-6 text-center col-6 mx-auto text-light mt-4"><button type="submit" style="color: white;" class="btn btn_confirm">Сохранить</button></p>
+        </form>
     </div>
-
 </section>

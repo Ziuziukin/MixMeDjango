@@ -19,13 +19,22 @@ def index(request):
 
 #Вызов страницы для отображения вкусов бренда или всех вкусов
 def tastes_brand(request):
-    brand_id = request.GET.get("brand_id", 'Вкусы')
-    if brand_id == 'Вкусы':
-        tastes = Tastes.objects.all().order_by('name_taste')
-        brand = 'Вкусы'
+    brand_id = request.GET.get("brand_id", 'all')
+    strong = request.GET.get("strong", 'all')
+    if brand_id == 'all':
+        if strong == 'all':
+            tastes = Tastes.objects.all().order_by('name_taste')
+            brand = 'Вкусы'
+        else:
+            tastes = Tastes.objects.filter(strength_taste=strong).order_by('name_taste')
+            brand = 'Вкусы'
     else:
-        tastes = Tastes.objects.filter(brand_id=brand_id).order_by('name_taste')
-        brand = Brands.objects.get(id=int(brand_id))
+        if strong == 'all':
+            tastes = Tastes.objects.filter(brand_id=brand_id).order_by('name_taste')
+            brand = Brands.objects.get(id=int(brand_id))
+        else:
+            tastes = Tastes.objects.filter(brand_id=brand_id, strength_taste=strong).order_by('name_taste')
+            brand = Brands.objects.get(id=int(brand_id))
 
     context = {'brand': brand,
                'tastes_list': tastes,
